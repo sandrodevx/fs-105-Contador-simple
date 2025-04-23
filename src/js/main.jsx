@@ -1,18 +1,53 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import SecondsCounter from './components/SecondsCounter';
 
-//Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap"
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// index.css'
-import '../styles/index.css'
+let seconds = 0;
+let isRunning = true;
+let timer;
+let targetTime = null;
 
-// components
-import Home from './components/Home';
+const render = () => {
+  root.render(
+    <SecondsCounter 
+      seconds={seconds}
+      isRunning={isRunning}
+      onStart={() => {
+        if (!isRunning) {
+          isRunning = true;
+          timer = setInterval(() => {
+            seconds++;
+            render();
+          }, 1000);
+        }
+      }}
+      onStop={() => {
+        isRunning = false;
+        clearInterval(timer);
+      }}
+      onReset={() => {
+        seconds = 0;
+        isRunning = false;
+        clearInterval(timer);
+        render();
+      }}
+      onSetTarget={(time) => targetTime = time}
+    />
+  );
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+  if (targetTime !== null && seconds === targetTime) {
+    alert(`¡Alerta! Has alcanzado ${targetTime} segundos`);
+    targetTime = null;
+  }
+};
+
+timer = setInterval(() => {
+  if (isRunning) {
+    seconds++;
+    render();
+  }
+}, 1000);
+
+render();

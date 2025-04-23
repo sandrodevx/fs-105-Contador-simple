@@ -1,0 +1,82 @@
+/* Contenedor principal */
+.counter-container {
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Display del contador */
+  .counter-display {
+    font-size: 24px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .counter-icon {
+    margin-right: 10px;
+    color: #333;
+  }
+  
+  .counter-digit {
+    display: inline-block;
+    width: 30px;
+    margin: 0 2px;
+    padding: 5px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  /* Controles principales */
+  .counter-controls {
+    margin: 20px 0;
+  }
+  
+  .counter-btn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .counter-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .counter-btn-start {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .counter-btn-stop {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .counter-btn-reset {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  /* Control de alerta */
+  .counter-alert-control {
+    margin-top: 20px;
+  }
+  
+  .counter-input {
+    padding: 8px;
+    margin-right: 5px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .counter-btn-alert {
+    background-color: #FF9800;
+    color: white;
+  }
